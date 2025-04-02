@@ -1,0 +1,7 @@
+
+require("module");
+
+const DataBase = () =>{
+
+  
+}
