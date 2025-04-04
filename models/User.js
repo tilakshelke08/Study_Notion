@@ -44,5 +44,5 @@
     required : true,
     ref:"CourseProogrss"
   }],
- });;
+ });
  module.exports = mongoose.model("User",userScheme); 
