@@ -1,11 +1,11 @@
 
 // import the modells 
 
-const Tag = require("../models/tags");
+const Tag = require("../models/category");
 
 
 // created Tags ..
-exports.createTag = async (req, res) => {
+exports.createCategory = async (req, res) => {
 
   try {
 
@@ -23,17 +23,17 @@ exports.createTag = async (req, res) => {
 
     // crreated Entry in database 
 
-    const tagDetails = await Tag.create({
+    const categoryDetails = await Tag.create({
       name: name,
       description: description,
     });
 
-    console.log(tagDetails);
+    console.log(categoryDetails);
 
     // retrun rresponse 
     return res.status(200).json({
       success: true,
-      message: " Tag Created Successfully !!",
+      message: " Category Created Successfully !!",
     })
 
   } catch (error) {
@@ -41,7 +41,7 @@ exports.createTag = async (req, res) => {
     console.error(error);
     return res.status(500).json({
       success: false,
-      message: " Tags Creation Failed !!",
+      message: " Category Creation Failed !!",
 
     })
 
@@ -50,21 +50,21 @@ exports.createTag = async (req, res) => {
 
 }
 
-// show  all Tags ..
-exports.showAllTag = async (req, res) => {
+// show  all Category ..
+exports.showAllCategory = async (req, res) => {
 
   try {
-// Getting all tags 
+// Getting all Category 
    
-const showTags = await Tag.find({},{name:true,description:true});// you are getting all tags but 
+const showCategory = await Tag.find({},{name:true,description:true});// you are getting all tags but 
 // its necessary you have to got min. name and description in all Tags .
 
-    console.log(showTags);
+    console.log(showCategory);
 
     // retrun rresponse 
     return res.status(200).json({
       success: true,
-      message: " Showing all  Tags  Successfully !!",
+      message: " Showing all  Category  Successfully !!",
     })
 
   } catch (error) {
@@ -72,7 +72,7 @@ const showTags = await Tag.find({},{name:true,description:true});// you are gett
     console.error(error);
     return res.status(500).json({
       success: false,
-      message: " showing  All Tags  Failed !!",
+      message: " showing  All Category  Failed !!",
 
     })
 
