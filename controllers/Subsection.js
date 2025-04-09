@@ -66,3 +66,42 @@ exports.createSubsection = async (req, res) => {
 
   }
 }
+
+// delete 
+// delete Subsecton 
+exports.deletedSubsection = async (req, res) => {
+
+  try {
+    // fetch the data 
+    const {subsectionId } = req.body;
+
+    // validations 
+    if (!subsectionId) {
+      return res.status(400).json({
+        success: false,
+        message: " All Requireed Details are Manadatory  !!",
+      })
+
+    }
+
+
+    // delete Subsection 
+    const deleteSubsection = await Subsection.findByIdAndDelete( subsectionId );
+
+    // retrun response 
+    return res.status(200).json({
+      success: true,
+      message: " Subsection deleted Successfullly !!",
+      deleteSubsection,
+    })
+
+
+  } catch (error) {
+    // retrun 
+    return res.status(500).json({
+      success: false,
+      message: "Subsection deletion Failed !!",
+    })
+
+  }
+}
