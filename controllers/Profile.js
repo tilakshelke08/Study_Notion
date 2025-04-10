@@ -14,9 +14,9 @@ exports.deleteProfile = async (req, res) => {
      const userDetails = await User.findById(id);
     // validations 
     if (!userDetails) {
-      return res.status(400).json({
+      return res.status(404).json({
         success: false,
-        message: " All Requireed Details are Manadatory  !!",
+        message: " user not found  !!",
       })
 
     }
@@ -47,8 +47,7 @@ exports.deleteProfile = async (req, res) => {
 }
 
 // get  all user details 
-// go for delete profile 
-exports.deleteProfile = async (req, res) => {
+exports.getAlllProfile = async (req, res) => {
 
   try {
     // fetch the data 
